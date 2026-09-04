@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflex | Dispatcher</title>
+
+    <link rel="stylesheet" href="css/dispatcher.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div>
+            <h1>Reflex</h1>
+            <p>Dispatcher Dashboard</p>
+        </div>
+
+        <div class="status">
+            <span class="online-dot"></span>
+            Live
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- DELIVERY REQUEST LIST -->
+        <section>
+            <div class="section-heading">
+                <div>
+                    <h2>Delivery Requests</h2>
+                    <p>Assign open deliveries to available riders.</p>
+                </div>
+
+                <span id="requestCount" class="request-count"></span>
+            </div>
+
+            <div id="deliveryList" class="delivery-list">
+                <!-- JavaScript inserts deliveries here -->
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ASSIGN RIDER MODAL -->
+    <div id="assignmentModal" class="modal hidden">
+
+        <div class="modal-content">
+
+            <button id="closeModal" class="close-button">
+                &times;
+            </button>
+
+            <h2>Assign Delivery</h2>
+
+            <div id="deliveryDetails" class="delivery-details">
+            </div>
+
+            <div class="rider-section">
+                <h3>Select a rider</h3>
+
+                <div id="riderList" class="rider-list">
+                </div>
+            </div>
+
+            <button id="assignButton" class="assign-button" disabled>
+                Assign Delivery
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- SUCCESS MESSAGE -->
+    <div id="successMessage" class="success-message hidden">
+        <div class="success-icon">✓</div>
+
+        <div>
+            <strong>Delivery assigned successfully</strong>
+            <p id="successText"></p>
+        </div>
+    </div>
+
+
+    <script src="dispatcher.js"></script>
+</body>
+</html>

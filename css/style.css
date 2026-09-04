@@ -1,0 +1,452 @@
+/* Reflex — the Nairobi ledger look.
+ *
+ * Warm paper, ink borders, hard shadows, mono for anything factual.
+ * No gradients, no glass, no stock-template softness. It should look like
+ * someone stamped it by hand, because someone did.
+ */
+
+:root {
+  --paper: #f4f0e6;
+  --card: #fffdf6;
+  --ink: #1a1512;
+  --grey: #6b6257;
+  --faint: #d9d2c2;
+  --green: #0d7a3f;
+  --green-dark: #0a5c30;
+  --amber: #b45309;
+  --red: #b42318;
+  --mono: ui-monospace, "Cascadia Mono", SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.mono { font-family: var(--mono); }
+
+.green { color: var(--green); }
+
+/* ------------------------------------------------------ top bar */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 28px;
+  border-bottom: 2px solid var(--ink);
+  background: var(--card);
+}
+
+.wordmark {
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.18em;
+}
+
+.city {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  border: 1.5px solid var(--ink);
+  padding: 3px 8px;
+  background: var(--paper);
+}
+
+.topbar-note {
+  margin-left: auto;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--grey);
+}
+
+.topbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.desk-stamp {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  border: 2px solid var(--green);
+  color: var(--green);
+  padding: 3px 10px;
+  transform: rotate(-1.5deg);
+  background: #eaf5ee;
+}
+
+.home-link {
+  margin-left: auto;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 2px;
+}
+
+.home-link:hover { color: var(--green); border-color: var(--green); }
+
+/* ------------------------------------------------------ landing hero */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 40px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 28px 40px;
+  width: 100%;
+}
+
+.hero h1 {
+  font-size: clamp(40px, 6vw, 68px);
+  line-height: 1.04;
+  letter-spacing: -1.5px;
+  margin: 0;
+  font-weight: 800;
+}
+
+.lede {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--grey);
+  max-width: 52ch;
+  margin: 26px 0 0;
+}
+
+.flow {
+  margin-top: 30px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  display: inline-block;
+  padding: 8px 4px;
+}
+
+/* the example receipt */
+
+.ticket {
+  background: var(--card);
+  border: 2px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--ink);
+  padding: 22px 22px 16px;
+  transform: rotate(0.6deg);
+}
+
+.ticket-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  padding-bottom: 12px;
+  border-bottom: 2px dashed var(--faint);
+}
+
+.ticket-lines {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.ticket-lines li {
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--faint);
+  color: var(--grey);
+}
+
+.ticket-lines li span {
+  color: var(--ink);
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.ticket-foot {
+  padding-top: 12px;
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  color: var(--grey);
+  text-align: right;
+}
+
+/* ------------------------------------------------------ choose your desk */
+
+.seats {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 28px 8px;
+  width: 100%;
+}
+
+.seats h2 {
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  margin: 0 0 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.seat {
+  display: block;
+  background: var(--card);
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  padding: 24px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.seat:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 9px 9px 0 var(--green);
+}
+
+.seat-num {
+  font-size: 13px;
+  color: var(--grey);
+  letter-spacing: 0.14em;
+}
+
+.seat h3 {
+  margin: 10px 0 6px;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+}
+
+.seat p {
+  margin: 0 0 22px;
+  color: var(--grey);
+  font-size: 16px;
+}
+
+.seat-go {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--green);
+  font-weight: 700;
+}
+
+.honest {
+  max-width: 1100px;
+  margin: 40px auto 0;
+  padding: 0 28px;
+  width: 100%;
+}
+
+.honest {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--grey);
+  border-left: 4px solid var(--green);
+  padding-left: 14px;
+  margin-left: 28px;
+  margin-right: 28px;
+}
+
+footer {
+  margin-top: auto;
+  text-align: center;
+  font-size: 11.5px;
+  letter-spacing: 0.18em;
+  color: var(--grey);
+  padding: 26px 0;
+  border-top: 2px solid var(--ink);
+  background: var(--card);
+}
+
+/* ------------------------------------------------------ retailer desk */
+
+.demo-banner {
+  background: #fff6e6;
+  color: var(--amber);
+  border-bottom: 2px solid var(--amber);
+  text-align: center;
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  padding: 10px 18px;
+}
+
+.retailer-grid {
+  display: grid;
+  grid-template-columns: 400px minmax(0, 1fr);
+  gap: 26px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 34px 28px 48px;
+  width: 100%;
+}
+
+.panel {
+  background: var(--card);
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  padding: 26px;
+  align-self: start;
+}
+
+.kicker {
+  margin: 0 0 8px;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--green);
+  font-weight: 700;
+}
+
+.panel h2 { margin: 0; font-size: 26px; letter-spacing: -0.5px; }
+
+.hint { color: var(--grey); font-size: 14px; margin: 8px 0 20px; line-height: 1.5; }
+
+label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 16px 0 6px;
+}
+
+input, textarea {
+  width: 100%;
+  border: 2px solid var(--faint);
+  background: #fff;
+  border-radius: 0;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--green);
+}
+
+textarea { resize: vertical; }
+
+button {
+  width: 100%;
+  margin-top: 22px;
+  background: var(--green);
+  color: #fff;
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  padding: 12px;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+button:hover { background: var(--green-dark); }
+
+button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+button:disabled { opacity: 0.6; cursor: default; }
+
+.form-error { color: var(--red); font-size: 14px; margin: 12px 0 0; }
+
+.success {
+  margin-top: 18px;
+  background: #eaf5ee;
+  border: 2px solid var(--green);
+  color: var(--green-dark);
+  padding: 12px 14px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.request-list { display: flex; flex-direction: column; gap: 16px; }
+
+.request-item {
+  border: 2px solid var(--faint);
+  background: #fff;
+  padding: 14px 16px;
+}
+
+.request-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.request-ref {
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.badge {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border: 1.5px solid currentColor;
+  white-space: nowrap;
+}
+
+.st-pending   { background: #fff6e6; color: var(--amber); }
+.st-assigned  { background: #eef1fb; color: #3546c0; }
+.st-picked    { background: #e5f3fb; color: #026aa2; }
+.st-delivered { background: #eaf5ee; color: var(--green-dark); }
+.st-failed    { background: #fdecea; color: var(--red); }
+.st-cancelled { background: #f0ede4; color: var(--grey); }
+
+.request-who { color: var(--ink); font-size: 15px; margin-top: 8px; }
+
+.request-item-desc { color: var(--grey); font-size: 14px; margin-top: 4px; }
+
+.request-when {
+  color: var(--grey);
+  font-size: 11.5px;
+  font-family: var(--mono);
+  letter-spacing: 0.06em;
+  margin-top: 8px;
+}
+
+.empty {
+  color: var(--grey);
+  font-size: 15px;
+  border: 2px dashed var(--faint);
+  padding: 22px;
+  text-align: center;
+}
+
+/* ------------------------------------------------------ responsive */
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; padding-top: 40px; }
+  .cards { grid-template-columns: 1fr; }
+  .retailer-grid { grid-template-columns: 1fr; }
+  .topbar-note { display: none; }
+  .honest { margin-left: 28px; margin-right: 28px; }
+}
