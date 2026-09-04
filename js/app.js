@@ -58,7 +58,6 @@ async function showRiderDeliveries(rider) {
             <p><strong>Status:</strong> ${delivery.delivery_status}</p>
 
             <div class="qr-code" id="qr-${delivery.request_id}"></div>
-            <p class="confirmation-code">${delivery.confirmation_code}</p>
 
             ${
                 delivery.delivery_status === "ASSIGNED"
@@ -77,7 +76,7 @@ async function showRiderDeliveries(rider) {
         message.appendChild(deliveryCard);
 
         new QRCode(document.getElementById(`qr-${delivery.request_id}`), {
-            text: delivery.confirmation_code,
+            text: delivery.confirmation_code || delivery.reference,
             width: 150,
             height: 150
         });

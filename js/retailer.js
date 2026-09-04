@@ -104,10 +104,13 @@ var FIELD_NAMES = {
 
   function fetchCreate(fields) {
     var payload = {};
+    var reference = fields.reference;
     payload[FIELD_NAMES.backend_customer_name]  = fields.customer_name;
     payload[FIELD_NAMES.backend_customer_phone] = fields.customer_phone;
     payload[FIELD_NAMES.backend_address]        = fields.address;
     payload[FIELD_NAMES.backend_item]           = fields.item_description;
+    payload["reference"]                        = reference;
+    payload["confirmation_code"]                = reference;
     payload["delivery_status"]                  = "pending";  /* Anne asked for this; new = pending */
 
     return fetch(ENDPOINT_CREATE, {
@@ -257,7 +260,10 @@ var FIELD_NAMES = {
     submitBtn.disabled = true;
     submitBtn.textContent = "Logging…";
 
-    fetchCreate(fields).then(function (row) {
+    fetchList().then(function (existing) {
+      fields.reference = nextRef(existing);
+      return fetchCreate(fields);
+    }).then(function (row) {
       form.reset();
       var ref = row && row.reference ? " " + row.reference : "";
       var st0 = row && (row.status || row.delivery_status);
