@@ -3,7 +3,7 @@
 // Wired to live backend endpoints (replaces mock data arrays)
 // ============================================================
 
-const API_BASE = "http://127.0.0.1:8000/api"; // e.g. "https://api.yourdomain.com" — leave "" if same-origin
+const API_BASE = "https://reflex-sprint-awqy.onrender.com/api"; // e.g. "https://api.yourdomain.com" — leave "" if same-origin
 
 // TODO: replace with the real logged-in dispatcher's id once dispatcher
 // auth/session is wired up. Every assignment POST needs this.

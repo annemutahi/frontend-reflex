@@ -1,4 +1,4 @@
-const API_BASE = "http://127.0.0.1:8000/api"; // adjust to your actual API root
+const API_BASE = "https://reflex-sprint-awqy.onrender.com/api"; // adjust to your actual API root
 
 const riderList = document.getElementById("rider-list");
 const message = document.getElementById("message");

@@ -10,8 +10,8 @@
    ANNE'S ENDPOINTS GO HERE.
    When Anne sends the endpoints, change ONLY the next two lines.
    --------------------------------------------------------------------- */
-var ENDPOINT_LIST   = "http://127.0.0.1:8000/api/requests/mine/";    /* the ask-for-the-list counter */
-var ENDPOINT_CREATE = "http://127.0.0.1:8000/api/requests/create/";  /* the hand-over counter */
+var ENDPOINT_LIST   = "https://reflex-sprint-awqy.onrender.com/api/requests/mine/";    /* the ask-for-the-list counter */
+var ENDPOINT_CREATE = "https://reflex-sprint-awqy.onrender.com/api/requests/create/";  /* the hand-over counter */
 /* Relative on purpose: no computer name, no port number. The page asks
    the place that served it. That works on Anne's localhost today and on
    the deployed address later, with nothing to change, and it removes the
