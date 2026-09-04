@@ -423,7 +423,8 @@ button:disabled { opacity: 0.6; cursor: default; }
 
 .request-who { color: var(--ink); font-size: 15px; margin-top: 8px; }
 
-.request-item-desc { color: var(--grey); font-size: 14px; margin-top: 4px; }
+.request-item-desc,
+.request-confirmation { color: var(--grey); font-size: 14px; margin-top: 4px; }
 
 .request-when {
   color: var(--grey);
