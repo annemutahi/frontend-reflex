@@ -52,11 +52,11 @@ var FIELD_NAMES = {
 
   function seed() {
     return [
-      { id: 2, reference: "RFX-000002", customer_name: "Grace Njeri",
+      { request_id: 2, reference: "RFX-000002", confirmation_code: "RFX-000002", customer_name: "Grace Njeri",
         customer_phone: "+254733555666", address: "Thika, Section 9, Block C Flat 12",
         item_description: "Two boxes of Amoxil 500mg, pharmacy order",
         status: "pending", created_at: new Date(Date.now() - 25 * 60000).toISOString() },
-      { id: 1, reference: "RFX-000001", customer_name: "Peter Otieno",
+      { request_id: 1, reference: "RFX-000001", confirmation_code: "RFX-000001", customer_name: "Peter Otieno",
         customer_phone: "+254722333444", address: "Ruai, Kangundo Road, House 45B",
         item_description: "Samsung 43 inch TV, one carton, sealed",
         status: "assigned", created_at: new Date(Date.now() - 90 * 60000).toISOString() }
@@ -145,8 +145,9 @@ var FIELD_NAMES = {
       demoMode = true;
       var list = readDemo();
       var row = {
-        id: Date.now(),
+        request_id: Date.now(),
         reference: nextRef(list),
+        confirmation_code: fields.reference,
         customer_name: fields.customer_name,
         customer_phone: fields.customer_phone,
         address: fields.address,
@@ -215,11 +216,12 @@ var FIELD_NAMES = {
       return (
         '<div class="request-item">' +
           '<div class="request-top">' +
-            '<span class="request-ref">' + esc(d.reference || ("#" + d.id)) + "</span>" +
+            '<span class="request-ref">' + esc(d.reference || ("#" + d.request_id)) + "</span>" +
             '<span class="badge ' + statusClass(d.status) + '">' + esc(statusLabel(d.status)) + "</span>" +
           "</div>" +
           '<div class="request-who">' + esc(d.customer_name) + " &middot; " + esc(d.address) + "</div>" +
           '<div class="request-item-desc">' + esc(d.item_description) + "</div>" +
+          '<div class="request-confirmation">Confirmation code: ' + esc(d.confirmation_code) + "</div>" +
           '<div class="request-when">LOGGED ' + esc(when(d.created_at)) + "</div>" +
         "</div>"
       );
