@@ -1,32 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reflex - Rider</title>
-
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reflex — rider desk</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-    <header class="topbar">
-        <a class="home-link mono" href="index.html">&larr; CHOOSE A DESK</a>
-    </header>
 
-    <div class="container">
+  <header class="topbar">
+    <a class="topbar-brand" href="index.html">
+      <span class="wordmark">REFLEX</span>
+      <span class="desk-stamp mono">RIDER DESK</span>
+    </a>
+    <a class="home-link mono" href="index.html">&larr; CHOOSE A DESK</a>
+  </header>
 
-        <h1>REFLEX</h1>
-        <h2>Rider Sign-in</h2>
+  <div class="demo-banner mono" id="demo-banner" hidden>
+    PRACTICE DATA &mdash; the backend is not reachable right now, so this page shows labelled demo
+    records. This stripe hides itself the moment the real backend answers.
+  </div>
 
-        <p>Select your name to continue</p>
+  <main class="retailer-grid">
 
-        <div id="rider-list"></div>
+    <section class="panel">
+      <p class="kicker mono">SIGN IN</p>
+      <h2>Who&rsquo;s carrying?</h2>
+      <p class="hint">Pick your name. You will only ever see your own deliveries.</p>
+      <div class="rider-choice" id="rider-choice">Loading&hellip;</div>
+    </section>
 
-        <div id="message"></div>
+    <section class="panel" id="my-panel" hidden>
+      <p class="kicker mono">LIVE</p>
+      <h2 id="welcome">My deliveries.</h2>
+      <p class="hint">Refreshes itself every five seconds. A new assignment appears by itself
+      &mdash; no refresh needed.</p>
+      <div class="success" id="success-box" hidden></div>
+      <p class="form-error" id="error-box" hidden></p>
+      <div id="my-list" class="request-list"></div>
+    </section>
 
-    </div>
+  </main>
 
-<script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
-<script src="js/app.js"></script>
+  <footer class="mono">&copy; 2026 REFLEX &mdash; MADE IN NAIROBI</footer>
+
+  <!-- Optional camera and QR helpers. If they cannot load (no internet),
+       the text code still works and the page says so. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+  <script src="js/rider.js"></script>
 </body>
 </html>

@@ -1,91 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reflex | Dispatcher</title>
-
-    <link rel="stylesheet" href="css/dispatcher.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reflex — dispatch desk</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-    <header class="topbar">
-        <a class="home-link mono" href="index.html">&larr; CHOOSE A DESK</a>
-    </header>
-    <header class="topbar">
-        <div>
-            <h1>Reflex</h1>
-            <p>Dispatcher Dashboard</p>
-        </div>
 
-        <div class="status">
-            <span class="online-dot"></span>
-            Live
-        </div>
-    </header>
+  <header class="topbar">
+    <a class="topbar-brand" href="index.html">
+      <span class="wordmark">REFLEX</span>
+      <span class="desk-stamp mono">DISPATCH DESK</span>
+    </a>
+    <a class="home-link mono" href="index.html">&larr; CHOOSE A DESK</a>
+  </header>
 
-    <main class="container">
+  <div class="demo-banner mono" id="demo-banner" hidden>
+    PRACTICE DATA &mdash; the backend is not reachable right now, so this page shows labelled demo
+    records. This stripe hides itself the moment the real backend answers.
+  </div>
 
-        <!-- DELIVERY REQUEST LIST -->
-        <section>
-            <div class="section-heading">
-                <div>
-                    <h2>Delivery Requests</h2>
-                    <p>Assign open deliveries to available riders.</p>
-                </div>
+  <main class="retailer-grid">
 
-                <span id="requestCount" class="request-count"></span>
-            </div>
+    <section class="panel">
+      <p class="kicker mono">OPEN WORK</p>
+      <h2>Unassigned requests.</h2>
+      <p class="hint"><span class="count-kicker" id="open-count"></span></p>
+      <div id="open-list" class="request-list">Loading&hellip;</div>
+    </section>
 
-            <div id="deliveryList" class="delivery-list">
-                <!-- JavaScript inserts deliveries here -->
-            </div>
-        </section>
+    <section class="panel">
+      <p class="kicker mono">HAND IT OVER</p>
+      <h2>Assign a rider.</h2>
+      <p class="hint">Pick a request on the left, then a rider here. One tap each.</p>
 
-    </main>
+      <div id="assign-area">
+        <div class="empty">Nothing selected yet. Choose a request on the left.</div>
+      </div>
 
+      <div class="success" id="success-box" hidden></div>
+      <p class="form-error" id="error-box" hidden></p>
+    </section>
 
-    <!-- ASSIGN RIDER MODAL -->
-    <div id="assignmentModal" class="modal hidden">
+  </main>
 
-        <div class="modal-content">
+  <footer class="mono">&copy; 2026 REFLEX &mdash; MADE IN NAIROBI</footer>
 
-            <button id="closeModal" class="close-button">
-                &times;
-            </button>
-
-            <h2>Assign Delivery</h2>
-
-            <div id="deliveryDetails" class="delivery-details">
-            </div>
-
-            <div class="rider-section">
-                <h3>Select a rider</h3>
-
-                <div id="riderList" class="rider-list">
-                </div>
-            </div>
-
-            <button id="assignButton" class="assign-button" disabled>
-                Assign Delivery
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- SUCCESS MESSAGE -->
-    <div id="successMessage" class="success-message hidden">
-        <div class="success-icon">✓</div>
-
-        <div>
-            <strong>Delivery assigned successfully</strong>
-            <p id="successText"></p>
-        </div>
-    </div>
-
-
-    <script src="js/dispatcher.js"></script>
+  <script src="js/dispatcher.js"></script>
 </body>
 </html>
